@@ -2,13 +2,13 @@ import { Card, Button, Form, Input, Row, Col } from "antd";
 import React, { useContext } from "react";
 import MultiFormContext from "../../MultiFormContext";
 
-const BasicDetails = () => {
+const BasicDetails = ({ current, setCurrent }) => {
   const { handlePolicyDetails, policyDetails } = useContext(MultiFormContext);
   const onFinish = (values) => {
-    console.log("Success:", values);
     handlePolicyDetails(values);
+    setCurrent(current + 1);
   };
-  console.log(policyDetails);
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
