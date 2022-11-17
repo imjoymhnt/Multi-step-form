@@ -1,6 +1,7 @@
 import { Card, Col, Row, Select } from "antd";
 import React, { useContext } from "react";
 import MultiFormContext from "../../MultiFormContext";
+import PlanHeader from "./PlanHeader";
 
 const PlanDetails = () => {
   const { handlePolicyDetails, policyDetails } = useContext(MultiFormContext);
@@ -30,6 +31,7 @@ const PlanDetails = () => {
     <>
       <Row>
         <Col span={12} offset={6}>
+          <PlanHeader />
           <Card title="Plan Details" hoverable>
             <p>Your plan type</p>
             <Select

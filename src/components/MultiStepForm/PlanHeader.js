@@ -2,7 +2,7 @@ import React from "react";
 
 const PlanHeader = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "5rem" }}>
       <h2>Choose your plan</h2>
       <p>
         Hello Anisha, <br />

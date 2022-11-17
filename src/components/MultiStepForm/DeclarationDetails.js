@@ -82,7 +82,7 @@ const DeclarationDetails = () => {
             name="preExistingDiseaasesConfirmation"
             valuePropName="checked"
             wrapperCol={{
-              offset: 8,
+              offset: 7,
               span: 16,
             }}
           >

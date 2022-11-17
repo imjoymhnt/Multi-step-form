@@ -50,3 +50,7 @@
 .steps-action {
   margin-top: 24px;
 }
+p {
+  display: flex;
+  align-items: flex-start;
+}

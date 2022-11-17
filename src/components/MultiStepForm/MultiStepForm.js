@@ -38,7 +38,11 @@ const MultiStepForm = () => {
   }));
   return (
     <>
-      <Steps current={current} items={items} />
+      <Steps
+        current={current}
+        items={items}
+        style={{ width: "90%", margin: "auto", marginTop: "1rem" }}
+      />
       <div className="steps-content">{steps[current].content}</div>
     </>
   );
