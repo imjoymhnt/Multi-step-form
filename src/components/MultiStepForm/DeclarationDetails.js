@@ -101,7 +101,9 @@ const DeclarationDetails = () => {
             </Button>
           </Form.Item>
         </Form>
-        <Button onClick={prev}>Go Back</Button>
+        <Button onClick={prev} style={{ marginLeft: "35%" }}>
+          Go Back
+        </Button>
       </Col>
     </Row>
   );

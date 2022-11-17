@@ -58,8 +58,16 @@ const DeductableDetails = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
+            className="parent"
           >
-            <Form.Item name="deductibleAmt" defaultValue={amount}>
+            <Form.Item
+              name="deductibleAmt"
+              defaultValue={amount}
+              wrapperCol={{
+                offset: 4,
+                span: 16,
+              }}
+            >
               <Slider
                 marks={marks}
                 max={500000}
@@ -73,7 +81,7 @@ const DeductableDetails = () => {
               name="deductibleAmtConfirmation"
               valuePropName="checked"
               wrapperCol={{
-                offset: 8,
+                offset: 4,
                 span: 16,
               }}
             >
@@ -84,7 +92,7 @@ const DeductableDetails = () => {
             </Form.Item>
             <Form.Item
               wrapperCol={{
-                offset: 8,
+                offset: 4,
                 span: 16,
               }}
             >
@@ -93,7 +101,9 @@ const DeductableDetails = () => {
               </Button>
             </Form.Item>
           </Form>
-          <Button onClick={prev}>Go Back</Button>
+          <Button style={{ marginLeft: "1rem" }} onClick={prev}>
+            Go Back
+          </Button>
         </Card>
       </Col>
     </Row>
