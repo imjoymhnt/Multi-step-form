@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import MultiFormContext from "../../MultiFormContext";
 
 const PlanDetails = () => {
-  const { handlePolicyDetails } = useContext(MultiFormContext);
+  const { handlePolicyDetails, policyDetails } = useContext(MultiFormContext);
   const handleChange = (value) => {
     handlePolicyDetails({ plan: value });
   };
@@ -39,6 +39,7 @@ const PlanDetails = () => {
               placeholder="Select your plan"
               onChange={handleChange}
               options={options}
+              defaultValue={policyDetails.plan}
             />
           </Card>
         </Col>

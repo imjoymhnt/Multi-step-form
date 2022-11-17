@@ -4,37 +4,34 @@ import BasicDetails from "./BasicDetails";
 import PlanDetails from "./PlanDetails";
 import { Button, message, Steps } from "antd";
 import DeductableDetails from "./DeductableDetails";
+import DeclarationDetails from "./DeclarationDetails";
+import Review from "./Review";
 
 const MultiStepForm = () => {
-  const { policyDetails } = useContext(MultiFormContext);
-  const [current, setCurrent] = useState(0);
+  const { policyDetails, current } = useContext(MultiFormContext);
   const steps = [
     {
-      title: "First",
+      title: "Choose Plan",
       content: (
         <>
-          <PlanDetails />{" "}
-          {policyDetails.plan && (
-            <BasicDetails current={current} setCurrent={setCurrent} />
-          )}
+          <PlanDetails /> {policyDetails.plan && <BasicDetails />}
         </>
       ),
     },
     {
-      title: "Second",
-      content: <DeductableDetails current={current} setCurrent={setCurrent} />,
+      title: "Select Deductible amount",
+      content: <DeductableDetails />,
     },
     {
-      title: "Last",
-      content: "Last-content",
+      title: "Declaration",
+      content: <DeclarationDetails />,
+    },
+    {
+      title: "Review & Confirm",
+      content: <Review />,
     },
   ];
-  const next = () => {
-    setCurrent(current + 1);
-  };
-  const prev = () => {
-    setCurrent(current - 1);
-  };
+
   const items = steps.map((item) => ({
     key: item.title,
     title: item.title,
@@ -43,33 +40,6 @@ const MultiStepForm = () => {
     <>
       <Steps current={current} items={items} />
       <div className="steps-content">{steps[current].content}</div>
-      <div className="steps-action">
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button
-            type="primary"
-            onClick={() => message.success("Processing complete!")}
-          >
-            Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button
-            style={{
-              margin: "0 8px",
-            }}
-            onClick={() => prev()}
-          >
-            Previous
-          </Button>
-        )}
-      </div>
-      {/* <PlanDetails />
-      {policyDetails.plan && <BasicDetails />} */}
     </>
   );
 };

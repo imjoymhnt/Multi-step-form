@@ -19,12 +19,21 @@ export function MultiFormProvider({ children }) {
     waitingPeriodConfirmation: false,
     preExistingDiseaasesConfirmation: false,
   });
+  const [current, setCurrent] = useState(0);
+  const next = () => {
+    setCurrent(current + 1);
+  };
+  const prev = () => {
+    setCurrent(current - 1);
+  };
 
   const handlePolicyDetails = (details) => {
     setPolicyDetails((prevState) => ({ ...prevState, ...details }));
   };
   return (
-    <MultiFormContext.Provider value={{ policyDetails, handlePolicyDetails }}>
+    <MultiFormContext.Provider
+      value={{ policyDetails, handlePolicyDetails, current, next, prev }}
+    >
       {children}
     </MultiFormContext.Provider>
   );

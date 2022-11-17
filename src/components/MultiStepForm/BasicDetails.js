@@ -2,16 +2,18 @@ import { Card, Button, Form, Input, Row, Col } from "antd";
 import React, { useContext } from "react";
 import MultiFormContext from "../../MultiFormContext";
 
-const BasicDetails = ({ current, setCurrent }) => {
-  const { handlePolicyDetails, policyDetails } = useContext(MultiFormContext);
+const BasicDetails = () => {
+  const { handlePolicyDetails, next, policyDetails } =
+    useContext(MultiFormContext);
   const onFinish = (values) => {
     handlePolicyDetails(values);
-    setCurrent(current + 1);
+    next();
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  const initialValues = policyDetails;
   return (
     <Row>
       <Col span={12} offset={6}>
@@ -24,9 +26,7 @@ const BasicDetails = ({ current, setCurrent }) => {
             wrapperCol={{
               span: 16,
             }}
-            initialValues={{
-              remember: true,
-            }}
+            initialValues={initialValues}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
@@ -41,7 +41,7 @@ const BasicDetails = ({ current, setCurrent }) => {
                 },
               ]}
             >
-              <Input />
+              <Input value={policyDetails.email} />
             </Form.Item>
             <Form.Item
               label="Mobile number"
